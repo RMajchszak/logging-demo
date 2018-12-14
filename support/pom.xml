@@ -7,18 +7,13 @@
 		<artifactId>logging</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>worker</artifactId>
+	<artifactId>support</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>worker</name>
-	<description>Zweiter REST-Service</description>
+	<name>support</name>
+	<description>Demo project for Spring Boot</description>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<dependency>
-			<groupId>de.adesso.cccinw4</groupId>
-			<artifactId>support</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -30,11 +25,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-math3</artifactId>
-			<version>3.6.1</version>
 		</dependency>
 
 		<dependency>

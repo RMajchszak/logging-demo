@@ -11,10 +11,12 @@
 	<groupId>de.adesso.cccinw4</groupId>
 	<artifactId>logging</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>logging</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Hilsklassen</description>
 
 	<modules>
+		<module>support</module>
 		<module>worker</module>
 		<module>primary</module>
 	</modules>
@@ -36,6 +38,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
 		</dependency>
 
 		<dependency>
