@@ -1,13 +1,13 @@
-package de.adesso.cccinw4.logging;
+package de.adesso.cccinw4.worker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LoggingApplication {
+public class WorkerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LoggingApplication.class, args);
+		SpringApplication.run(WorkerApplication.class, args);
 	}
 
 }

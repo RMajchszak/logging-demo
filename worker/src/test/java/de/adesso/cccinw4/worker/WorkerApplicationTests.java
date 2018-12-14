@@ -1,4 +1,4 @@
-package de.adesso.cccinw4.logging;
+package de.adesso.cccinw4.worker;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LoggingApplicationTests {
+public class WorkerApplicationTests {
 
 	@Test
 	public void contextLoads() {
