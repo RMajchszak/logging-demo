@@ -21,7 +21,7 @@ public class PrimaryController {
 
 
     @GetMapping(value = "/primary/{key}")
-    public ResponseEntity<String> compute(@PathVariable("key") String key ) throws InterruptedException {
+    public ResponseEntity<String> compute(@PathVariable("key") String key )  {
         String workerResult = workerClient.doWork(key);
         String result = "Der Worker meldet: " + workerResult;
         return ResponseEntity.ok(result);

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="TRACE">
+    <Properties>
+        <Property name="log-path">${sys:logPathPrefix}/logs/</Property>
+        <Property name="modul">${sys:moduleName}</Property>
+        <Property name="containerID">${hostName}</Property>
+        <Property name="applicationName">logdemo</Property>
+        <Property name="hostingEnvironment">dev</Property>
+    </Properties>
+    <Appenders>
+        <Console name="sysout" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d  %c %t - %m%n"/>
+        </Console>
+        <LogzioAppender name="Logzio">
+            <logzioToken>$LOGZIOTOKEN</logzioToken>
+            <logzioType>cccinw</logzioType>
+            <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+        </LogzioAppender>
+    </Appenders>
+    <Loggers>
+        <Logger name="de.adesso" level="debug"/>
+        <Root level="info">
+            <AppenderRef ref="sysout"/>
+            <AppenderRef ref="Logzio"/>
+        </Root>
+    </Loggers>
+</Configuration>
