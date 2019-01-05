@@ -2,10 +2,6 @@
 <Configuration status="TRACE">
     <Properties>
         <Property name="log-path">${sys:logPathPrefix}/logs/</Property>
-        <Property name="modul">${sys:moduleName}</Property>
-        <Property name="containerID">${hostName}</Property>
-        <Property name="applicationName">logdemo</Property>
-        <Property name="hostingEnvironment">dev</Property>
     </Properties>
     <Appenders>
         <Console name="sysout" target="SYSTEM_OUT">
@@ -16,6 +12,7 @@
             <logzioToken>$LOGZIOTOKEN</logzioToken>
             <logzioType>cccinw</logzioType>
             <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+            <additionalFields>application=$applicationName;module=$moduleName</additionalFields>
         </LogzioAppender>
     </Appenders>
     <Loggers>
