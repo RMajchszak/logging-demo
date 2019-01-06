@@ -12,6 +12,7 @@
             <logzioToken>$LOGZIOTOKEN</logzioToken>
             <logzioType>cccinw</logzioType>
             <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+            <inMemoryQueue>true</inMemoryQueue>
             <additionalFields>application=$applicationName;module=$moduleName</additionalFields>
         </LogzioAppender>
     </Appenders>

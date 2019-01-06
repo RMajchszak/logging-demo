@@ -2,6 +2,8 @@ package de.adesso.cccinw4.worker;
 
 import org.apache.commons.math3.distribution.ParetoDistribution;
 import org.apache.commons.math3.random.RandomGeneratorFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +16,11 @@ import java.util.concurrent.ThreadLocalRandom;
 @RequestMapping(value = "/api", produces = "application/json")
 public class WorkerController {
 
+    private static final Logger LOG = LogManager.getLogger(WorkerController.class);
+
     @GetMapping(value = "/worker/{key}")
     public ResponseEntity<String> compute( @PathVariable("key") String key ) throws InterruptedException {
+        LOG.info("Eingehender Reqzest mit {} als Key", key);
         ParetoDistribution distribution = new ParetoDistribution(
                 RandomGeneratorFactory.createRandomGenerator(ThreadLocalRandom.current()),
                 0.5,
