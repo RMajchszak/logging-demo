@@ -13,7 +13,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Ein Servletfilter der Request-Daten in den MDC schreibt
+ */
 public class DiagnosticLoggingFilter implements Filter {
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         try (CloseableThreadContext.Instance ctx = CloseableThreadContext.putAll(logAttributes(request))) {

@@ -6,6 +6,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * Spring Security Konfiguration für den Primary Service
+ * Es werden die Benutzer tom und maria mit einem festen Passwort konfiguriert
+ */
 @EnableWebSecurity
 @Configuration
 public class PrimarySecurityConfiguration extends WebSecurityConfigurerAdapter {

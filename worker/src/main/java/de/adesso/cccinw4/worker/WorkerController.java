@@ -12,12 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * REST Controller für den Worker Microservice
+ */
 @RestController
 @RequestMapping(value = "/api", produces = "application/json")
 public class WorkerController {
 
     private static final Logger LOG = LogManager.getLogger(WorkerController.class);
 
+    /**
+     * Wartet eine zufällige Zeit
+     * @param key Ein key, der nichts an der Berechnung ändert, aber geloggt wird
+     * @return Ein Ergebnisstring
+     * @throws InterruptedException Wenn beim zufälligen Warten was schief geht.
+     */
     @GetMapping(value = "/worker/{key}")
     public ResponseEntity<String> compute( @PathVariable("key") String key ) throws InterruptedException {
         LOG.info("Eingehender Reqzest mit {} als Key", key);

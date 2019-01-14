@@ -5,7 +5,19 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Setzt globale Key-Value-Paare für Logzio
+ */
 public class LogProperties {
+
+    /**
+     * Setzt Key-Value-Paare für Logzio.
+     * Die Werte werden in das System-Environment geschrieben
+     * @param moduleName Der Name der loggenden Spring-Applikation
+     * @param props Map mit Key-Value-Paaren
+     * @throws NoSuchFieldException Irgendwas geht schief
+     * @throws IllegalAccessException  Irgendwas geht schief
+     */
     public static void setLogProperties(String moduleName, Map<String, String> props) throws NoSuchFieldException,
             IllegalAccessException {
         Map<String, String> env = new HashMap<>();
@@ -17,6 +29,12 @@ public class LogProperties {
         setEnv(env);
     }
 
+    /**
+     * Ein Hack der Werte in das Environment schreibt. Eigentlich ist das Environment Read-Only
+     * @param newenv Map mit den Paaren, die ins Environment geschrieben werden sollen.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
     private static void setEnv(Map<String, String> newenv) throws NoSuchFieldException, IllegalAccessException {
         try {
             Class<?> processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment");

@@ -7,6 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * Spring Security Konfiguration für den Worker Service
+ * Es wird der Benutzer worker mit einem festen Passwort konfiguriert
+ */
 @EnableWebSecurity
 @Configuration
 public class WorkerSecurityConfiguration extends WebSecurityConfigurerAdapter {
