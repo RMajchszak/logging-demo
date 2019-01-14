@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping(value = "/api", produces = "application/json")
 public class PrimaryController {
@@ -27,18 +29,15 @@ public class PrimaryController {
 
 
     @GetMapping(value = "/primary/{key}")
-    public ResponseEntity<String> compute(@PathVariable("key") String key )  {
-        LOG.info("Eingehender Reqzest mit {} als Key", key);
-        StopWatch watch = new StopWatch();
-        watch.start();
-        String workerResult = workerClient.doWork(key);
-        watch.stop();
-        LogInfoMessageBuilder.builder(LOG)
-                .id("worker.returned")
-                .message("Result: {}",workerResult)
-                .add("duration",""+watch.getTotalTimeMillis())
-                .log();
-        String result = "Der Worker meldet: " + workerResult;
-        return ResponseEntity.ok(result);
+    public ResponseEntity<String> compute(@PathVariable("key") String key, Principal principal) {
+            LOG.info("Eingehender Request mit {} als Key", key);
+            StopWatch watch = new StopWatch();
+            watch.start();
+            String workerResult = workerClient.doWork(key);
+            watch.stop();
+            LogInfoMessageBuilder.builder(LOG).id("worker.returned").message("Result: {}", workerResult).add(
+                    "duration", "" + watch.getTotalTimeMillis()).log();
+            String result = "Der Worker meldet: " + workerResult;
+            return ResponseEntity.ok(result);
     }
 }
