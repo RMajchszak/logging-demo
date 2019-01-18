@@ -16,7 +16,7 @@ import java.security.Principal;
  * REST-Controller des Primary Microservice
  */
 @RestController
-@RequestMapping(value = "/api", produces = "application/json")
+@RequestMapping(value = "/api", produces = "text/plain")
 public class PrimaryController {
 
     private static final Logger LOG = LogManager.getLogger(PrimaryController.class);
